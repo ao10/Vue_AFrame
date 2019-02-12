@@ -45,6 +45,12 @@ export default {
         ["0", "1.6", "10"]
       ]
     };
+  },
+
+  mounted() {
+    console.log("Component mounted.");
+    console.log(this.$store);
   }
+
 };
 </script>
