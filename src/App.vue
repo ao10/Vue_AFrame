@@ -1,14 +1,28 @@
 <template>
-  <div id="app">
+  <div id="app" class="md-layout" style="height: 100%">
+
+    <div class="md-layout-item md-size-25" style="height: 100%">
+      <h1>Hello World</h1>
+    </div>
+
+    <div class="md-layout-item md-size-75" style="height: 900px">
+      <TestScene></TestScene>      
+    </div>
+
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <TestScene></TestScene>
+    
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue';
+import Vue from 'vue'
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.min.css'
+
 import TestScene from './components/TestScene.vue';
+
+Vue.use(VueMaterial);
 
 export default {
   name: 'app',
