@@ -18,10 +18,13 @@
 <script>
 import Vue from 'vue'
 import VueMaterial from 'vue-material'
+import Vuex from 'vuex'
+
 import 'vue-material/dist/vue-material.min.css'
 
 import TestScene from './components/TestScene.vue';
 
+Vue.use(Vuex)
 Vue.use(VueMaterial);
 
 export default {
