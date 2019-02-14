@@ -11,7 +11,7 @@
             </b>
             <hr>
             <md-card-content>
-              Current State:
+              Current State: {{ this.getTourState }}
               <div class="md-layout">
                 <label>Camera 1 Movement Value: </label>
                 <md-field class="md-layout-item md-size:50">
@@ -62,16 +62,17 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import VueMaterial from 'vue-material'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import VueMaterial from 'vue-material';
+import Vuex from 'vuex';
+import {mapGetters} from 'vuex';
 
-import 'vue-material/dist/vue-material.min.css'
+import 'vue-material/dist/vue-material.min.css';
 
 import store from './store/store.js';
 import TestScene from './components/TestScene.vue';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 Vue.use(VueMaterial);
 
 export default {
@@ -81,17 +82,42 @@ export default {
     // HelloWorld,
     TestScene
   },
+
+  computed: {
+    ...mapGetters([
+      'getTourState',
+      'getBox1',
+      'getBox2',
+      'getBox3',
+      'getBox4',
+      'getCamera1',
+      'getCamera2',
+      'getCamera3',
+      'getCamera4'
+    ])
+  },
+
   mounted() {
-    console.log(store);
+    // console.log(store);
     console.log("AppComponent mounted.");
+    // console.log(this.getTourState);
+  },
+
+  watch: {
+
   },
 
   methods: {
     runTour: function(event){
-      // console.log(store);
+      console.log(store);
       store.commit('activateTour');
+    },
+
+    moveToOrigin: function(event){
+      console.log("Moving to origin");
     }
-  }
+
+  },
 
 }
 </script>
